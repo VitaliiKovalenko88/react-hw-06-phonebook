@@ -1,11 +1,5 @@
 import { PhoneBook } from 'pages/phonBook';
-import { Container } from './Container/Container';
-
 
 export const App = () => {
-  return (
-    <Container>
-      <PhoneBook />
-    </Container>
-  );
+  return <PhoneBook />;
 };

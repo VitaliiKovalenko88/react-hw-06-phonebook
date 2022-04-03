@@ -4,7 +4,7 @@ export const ContactItem = ({ name, id, number, onDeleteContact }) => {
   return (
     <>
       <p>
-        {name}:{number}
+        {name}: {number}
       </p>
       <button
         type="button"
