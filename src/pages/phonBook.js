@@ -7,6 +7,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContacts, deleteContacts } from 'redux/contactsSlice';
 import { changeFilter } from 'redux/filterSlice';
+import { PhoneBookTitle, ContactsTitle } from './PhoneBook.styled';
 
 export const PhoneBook = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -57,9 +58,9 @@ export const PhoneBook = () => {
 
   return (
     <Container>
-      <h1>Phonebook</h1>
+      <PhoneBookTitle>Phonebook</PhoneBookTitle>
       <Form onSubmit={addContact} />
-      <h2>Contacts</h2>
+      <ContactsTitle>Contacts</ContactsTitle>
       <Filter value={filter} onChange={changeFilters} />
       <ContactList
         contacts={getVisibleContacts()}
