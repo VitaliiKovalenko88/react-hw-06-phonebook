@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-export const Td = styled.thead`
-  width: 1%;
-  font-size: 0.5em;
+export const Td = styled.td`
+  /* width: 100%; */
+
   border: 0.01em solid blue;
-  text-align: center;
 `;

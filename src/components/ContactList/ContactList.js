@@ -1,28 +1,14 @@
 import PropTypes from 'prop-types';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import {
-  Table,
-  Td,
-  Span,
-  Div,
-  Up,
-  Down,
-  TdResualt,
-} from './ContactList.styled';
+import { Table, Td, Span } from './ContactList.styled';
 
 export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
-    // eslint-disable-next-line react/style-prop-object
-    <Table id="phonebook__result">
-      // eslint-disable-next-line react/style-prop-object
+    <Table>
       <thead>
         <tr>
           <Td>
             <Span> Name</Span>
-            <Div>
-              <Up>▲</Up>
-              <Down>▼</Down>
-            </Div>
           </Td>
           <Td>Phone</Td>
           <Td>Action</Td>

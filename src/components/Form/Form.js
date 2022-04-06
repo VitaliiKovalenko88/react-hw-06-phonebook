@@ -46,6 +46,7 @@ export const Form = props => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         onChange={handleChange}
+        placeholder="Michael Jackson"
       />
       <label>Number</label>
       <input
@@ -55,6 +56,7 @@ export const Form = props => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         onChange={handleChange}
+        placeholder="5454345345"
       />
       <button type="submit">Add contact</button>
     </FormContacts>
