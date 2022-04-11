@@ -4,17 +4,7 @@ import { useSelector } from 'react-redux';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.items);
-  const filter = useSelector(state => state.filter);
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-  };
-  console.log(getVisibleContacts());
-  console.log(contacts);
   return (
     <Table>
       <thead>

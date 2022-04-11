@@ -3,6 +3,7 @@ import { FormContacts } from './Form.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'redux/contactsSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -45,10 +46,15 @@ export const Form = () => {
     );
 
     if (searchSameContact) {
-      alert(`Ну шо не видно, что ${name} таки есть уже?????!!!`);
+      const notify = () => toast.error(`${name} has been added already`);
+
+      notify();
       return;
     }
     dispatch(addContacts(dataContact));
+    const notify = () =>
+      toast.success(`User, ${name},  has been added to your phone book`);
+    notify();
     resetForm(e);
   };
 
@@ -81,6 +87,7 @@ export const Form = () => {
         placeholder="5454345345"
       />
       <button type="submit">Add contact</button>
+      <Toaster />
     </FormContacts>
   );
 };

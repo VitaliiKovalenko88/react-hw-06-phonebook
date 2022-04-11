@@ -5,3 +5,8 @@ export const Td = styled.td`
 
   border: 0.01em solid blue;
 `;
+
+export const DeleteBtn = styled.button`
+  background-color: red;
+  color: #ffffff;
+`;
