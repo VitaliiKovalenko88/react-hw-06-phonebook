@@ -1,10 +1,17 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FormContacts } from './Form.styled';
+import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContacts } from 'redux/contactsSlice';
 
-export const Form = props => {
+export const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.items);
+
+  const generateID = () => nanoid();
 
   const handleChange = e => {
     const { value, name } = e.currentTarget;
@@ -25,8 +32,23 @@ export const Form = props => {
   const handleSubmite = e => {
     e.preventDefault();
 
+    const dataContact = {
+      id: generateID(),
+      name,
+      number,
+    };
+
     const { value } = e.target.elements.name;
-    props.onSubmit(name, number, value);
+
+    const searchSameContact = contacts.find(
+      contact => contact.name.toLowerCase() === value.toLowerCase()
+    );
+
+    if (searchSameContact) {
+      alert(`Ну шо не видно, что ${name} таки есть уже?????!!!`);
+      return;
+    }
+    dispatch(addContacts(dataContact));
     resetForm(e);
   };
 
@@ -61,8 +83,4 @@ export const Form = props => {
       <button type="submit">Add contact</button>
     </FormContacts>
   );
-};
-
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
